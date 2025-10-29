@@ -35,27 +35,28 @@ void quickSort(struct activity arr[], int low, int high) {
 
 void select_activity(struct activity arr[],int n){ 
                                                    int x = 0;
-                                                   printf("%d ",x);
+                                                   printf("{%d %d} ",arr[x].start,arr[x].end);
                                                    for(int i=1;i<n;i++){
                                                                          if(arr[i].start >= arr[x].end){
-                                                                                                        printf("%d ",i);
-                                                                                                        x = i;
-                                                                         }
-                                                                         
-                                                   }
-                                                   printf("\n");
+                                                                                                         printf("{%d %d} ",arr[i].start,arr[i].end);
+                                                                                        
+                                                                                                         x = i;
+                                                                                                        }   
+                                                                                                    }
+                                                                         printf("\n");
 }
 
 int main(){
             struct activity arr[] = {{1,2},{3,5},{0,6},{5,8},{5,9},{8,7}};
             int n = sizeof(arr)/sizeof(arr[0]);  
 
-            printf("sorted array : ");
+            printf("sorted activities : ");
             quickSort( arr,0,n-1);
             for(int i = 0 ;i<n;i++){
                             printf("{%d %d} ",arr[i].start,arr[i].end);
                          }
                            printf("\n");
+            printf("selected activities : ");              
             select_activity(arr,n);
 
             return 0;
